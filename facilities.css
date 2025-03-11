@@ -275,7 +275,11 @@
 .facility-nav-item:hover i {
     transform: scale(1.1);
 }
-
+@media (max-width: 768px) {
+    .facilities-nav{
+        display: none;
+    }
+}
 /* Cursor Effect */
 .custom-cursor {
     width: 20px;
@@ -710,14 +714,7 @@
 }
 
 /* Table Animation */
-.equipment-table tbody tr {
-    opacity: 0;
-    transform: translateY(10px);
-}
 
-.equipment-table tbody tr.fade-in {
-    animation: fadeInRow 0.5s ease forwards;
-}
 
 @keyframes fadeInRow {
     from {
@@ -1117,11 +1114,15 @@
 }
 
 #pcb-lab {
-    background: #f8f7f2;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    padding: 4rem 0;
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: stretch;
+    position: relative;
+    z-index: 1;
+    min-height: 600px;
 }
 
 #pcb-lab .lab-content {
@@ -1142,10 +1143,15 @@
 }
 
 #pcb-lab .lab-title {
-    color: #ffcb05;
-    font-size: 3.5rem;
-    line-height: 1.2;
-    margin-bottom: 1rem;
+    font-size: 3rem;
+    color: var(--primary);
+    margin-bottom: 2rem;
+    font-family: 'Poppins', sans-serif;
+    position: relative;
+    padding-bottom: 1.5rem;
+    text-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+    animation: titleFadeIn 1s ease-out forwards;
+    transform-origin: left;
 }
 
 #pcb-lab .lab-title span {
@@ -1255,11 +1261,12 @@
     #pcb-lab .lab-image {
         display: none;
     }
+    
 }
 
 @media (max-width: 768px) {
     #pcb-lab .lab-title {
-        font-size: 2.5rem;
+        font-size: 2rem;
     }
 
     #pcb-lab .image-grid {
@@ -1647,7 +1654,7 @@
     }
 
     #testing-lab .lab-title {
-        font-size: 2.5rem;
+        font-size: 1.5rem;
     }
 
     #testing-lab .search-box {
@@ -1958,7 +1965,7 @@
 
 @media (max-width: 768px) {
     #mechanical-lab .lab-title {
-        font-size: 2.5rem;
+        font-size: 1.5rem;
     }
 
     #mechanical-lab .equipment-table-container {
@@ -2295,7 +2302,7 @@
     }
 
     #esdm-lab .lab-title {
-        font-size: 2.5rem;
+        font-size: 1.5rem;
     }
 
     #esdm-lab .search-box {
@@ -2471,6 +2478,7 @@
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     margin-top: 2rem;
     animation: fadeInUp 1s ease-out forwards;
+    overflow-x: auto;
 }
 
 #pcb-lab .table-header {
@@ -2604,7 +2612,7 @@
 
 @media (max-width: 768px) {
     #pcb-lab .lab-title {
-        font-size: 2.5rem;
+        font-size: 1.5rem;
     }
 
     #pcb-lab .image-grid {
@@ -2682,11 +2690,11 @@
     }
 
     #design-simulation .main-image {
-        height: 300px;
+        display: none;
     }
 
     #design-simulation .secondary-image {
-        height: 200px;
+        display: none;
     }
 }
 
@@ -2707,5 +2715,9 @@
     #design-simulation .table-header {
         flex-direction: column;
         align-items: flex-start;
+    }
+    
+    #design-simulation .image-grid {
+        display: none;
     }
 }

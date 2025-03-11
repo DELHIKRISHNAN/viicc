@@ -96,6 +96,20 @@ function showSlides() {
     }
 }
 
+function goToSlide(n) {
+    if (!slides || !dots) return;
+    
+    // Add transition effect to current slide
+    const currentSlide = slides[slideIndex];
+    currentSlide.style.animation = 'fadeOut 0.5s forwards';
+    
+    // Update slide index
+    slideIndex = n;
+    
+    showSlides();
+    startSlideshow(); // Reset the automatic slideshow timer
+}
+
 // Enhanced modal functionality
 function toggleApplyModal() {
     const modal = document.getElementById('applyModal');
